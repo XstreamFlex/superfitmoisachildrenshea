@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taming the Hangry Monster: How Healthy Snacks Keep Kids Happy & Active! | Super Fitmo</title>
+  
+  <!-- MANDATORY FAVICON [ASSET 5] -->
+  <link rel="icon" href="https://xmg.xstreamflex.com/i/ztMa77.ico" type="image/x-icon" />
+
+  <!-- Articles Data Sync Tag -->
+  <script src="articles-data.js"></script>
+
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            fitmoBlue: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              900: '#0c4a6e',
+            },
+            fitmoOrange: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              900: '#7c2d12',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 flex flex-col min-h-screen">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-fitmoBlue-100 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://xmg.xstreamflex.com/i/ztMa77.ico" alt="Super Fitmo Logo Icon" class="w-10 h-10 transform group-hover:scale-110 transition-transform duration-300" />
+        <span class="font-display text-2xl font-bold tracking-tight bg-gradient-to-r from-fitmoBlue-600 to-fitmoOrange-500 bg-clip-text text-transparent">
+          Super Fitmo
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-fitmoBlue-600 dark:text-fitmoBlue-400 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500">Home</a>
+        <a href="watch.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Watch Now</a>
+        <a href="about.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">About</a>
+        <a href="products.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Products</a>
+        <a href="blog.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Blog</a>
+        <a href="contact.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Contact</a>
+      </nav>
+
+      <!-- Utility Actions (Theme & CTA) -->
+      <div class="hidden lg:flex items-center gap-4">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" class="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors duration-200 focus:outline-none" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+        </button>
+
+        <a href="watch.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full font-display font-semibold text-white bg-fitmoOrange-500 hover:bg-fitmoOrange-600 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+          Join the Rescue!
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button & Theme Action -->
+      <div class="flex items-center gap-3 lg:hidden">
+        <button id="theme-toggle-btn-mobile" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors duration-200" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon dark:hidden"></i>
+          <i class="fa-solid fa-sun hidden dark:block"></i>
+        </button>
+        <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-4 pb-6 space-y-3 transition-all duration-300 shadow-inner">
+      <a href="index.html" class="block px-4 py-2.5 rounded-lg bg-fitmoBlue-50 dark:bg-slate-800 text-fitmoBlue-600 dark:text-fitmoBlue-400 font-semibold">Home</a>
+      <a href="watch.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Watch Now</a>
+      <a href="about.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">About Us</a>
+      <a href="products.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Products</a>
+      <a href="blog.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Blog</a>
+      <a href="contact.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Contact</a>
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+        <a href="watch.html" class="block w-full text-center py-3 rounded-full font-display font-semibold text-white bg-fitmoOrange-500 hover:bg-fitmoOrange-600 shadow-md">
+          Join the Rescue!
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- GLOBAL HEADER NAVIGATION -->
+  
+
+  <!-- MAIN BLOG POST CONTENT CONTAINER -->
+  <main class="flex-grow py-8 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <!-- Breadcrumb Navigation -->
+      
+
+      <!-- Post Category Badge -->
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-fitmoOrange-100 text-fitmoOrange-700 dark:bg-fitmoOrange-900/30 dark:text-fitmoOrange-300 mb-4">
+        <i class="fa-solid fa-apple-whole"></i> Healthy Habits
+      </span>
+
+      <!-- Hero Title -->
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight mb-6">
+        Taming the Hangry Monster: How Healthy Snacks Keep Kids Happy & Active!
+      </h1>
+
+      <!-- Author Bio Badge & Article Metadata -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-6 border-y border-slate-200 dark:border-slate-800 mb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 border-2 border-fitmoBlue-400 flex-shrink-0">
+            <!-- AUTHOR PROFILE IMAGE [ASSET 1] -->
+            <img src="https://xmg.xstreamflex.com/i/SGPBqZ" alt="Coach Fitmo Author" class="w-full h-full object-cover object-top" />
+          </div>
+          <div>
+            <span class="block text-sm font-bold text-slate-900 dark:text-white">Coach Fitmo Staff</span>
+            <span class="block text-xs text-slate-500 dark:text-slate-400">Children's Wellness Edutainment Expert</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-xs md:text-sm text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-1">
+            <i class="fa-regular fa-calendar"></i>
+            <span>February 18, 2026</span>
+          </div>
+          <div class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+          <div class="flex items-center gap-1">
+            <i class="fa-regular fa-clock"></i>
+            <span>5 Min Read</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Share Header Block -->
+      <div class="flex items-center gap-3 mb-8">
+        <span class="text-xs uppercase tracking-wider font-bold text-slate-400 dark:text-slate-500">Share:</span>
+        <button onclick="shareLink('twitter')" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors" title="Share on X / Twitter">
+          <i class="fa-brands fa-x-twitter"></i>
+        </button>
+        <button onclick="shareLink('facebook')" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors" title="Share on Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </button>
+        <button onclick="shareLink('pinterest')" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors" title="Share on Pinterest">
+          <i class="fa-brands fa-pinterest-p"></i>
+        </button>
+        <button onclick="copyToClipboard()" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors relative" id="copyBtn" title="Copy Link">
+          <i class="fa-regular fa-copy"></i>
+          <span id="copyTooltip" class="absolute -top-8 bg-slate-900 text-white text-xxs px-2 py-0.5 rounded opacity-0 pointer-events-none transition-opacity">Copied!</span>
+        </button>
+      </div>
+
+      <!-- MANDATORY MAIN HERO IMAGE [ASSET 3] -->
+      <div class="mb-10 rounded-2xl overflow-hidden shadow-xl border-4 border-white dark:border-slate-900">
+        <img src="https://xmg.xstreamflex.com/i/WqIGFC" alt="Taming the Hangry Monster - fitmohangrycover.png" class="w-full h-auto object-cover max-h-[480px]" />
+      </div>
+
+      <!-- ARTICLE BODY -->
+      <article class="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed space-y-6 text-base md:text-lg">
+        
+        <p class="font-medium text-slate-900 dark:text-slate-100 text-lg md:text-xl leading-relaxed">
+          We’ve all seen it happen. One minute, your child is playing happily, and the next, they are throwing a tantrum of epic proportions. It isn’t just bad behavior—it’s the classic <strong>"Hangry Monster"</strong> breakout! 
+        </p>
+
+        <p>
+          In our Super Fitmo video adventures, we see children literally transformed into groggy, rumbling monsters because they don't understand how food affects their bodies. When Super Fitmo flies to the rescue, he teaches them that a rumble in the tummy doesn't mean you should become a growling beast. It's a signal that your body needs premium fuel to keep your active motor running!
+        </p>
+
+        <!-- Quote Callout -->
+        <blockquote class="my-8 pl-6 border-l-4 border-fitmoOrange-500 italic text-slate-800 dark:text-slate-200 bg-fitmoOrange-50/50 dark:bg-fitmoOrange-900/10 py-4 pr-4 rounded-r-xl">
+          <p class="font-display font-semibold text-lg text-fitmoOrange-700 dark:text-fitmoOrange-400 mb-1">Super Fitmo Says:</p>
+          "Our bodies are like supercars! If you fill them with sugary engine-cloggers, you'll break down fast and act like a monster. High-energy, whole foods keep us zooming forward!"
+        </blockquote>
+
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-10 mb-4">
+          The Science of the Sugar Crash
+        </h2>
+        
+        <p>
+          When kids eat highly processed snacks like chips, candy, or soda, their blood sugar spikes rapidly. This gives them an artificial, short-lived burst of energy. However, what goes up must come down. The ensuing insulin spike causes blood sugar levels to crash, leaving kids feeling drained, cranky, and emotionally volatile.
+        </p>
+
+        <p>
+          To prevent these dramatic mood swings, pediatric nutritionists recommend focusing on whole-food options that blend complex carbohydrates, healthy fats, and proteins. These nutrients are digested slowly, providing a steady release of energy over several hours.
+        </p>
+
+        <!-- Inline Visual Asset [ASSET 4] -->
+        <div class="my-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-fitmoBlue-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-fitmoBlue-100 dark:border-slate-800">
+          <div class="md:col-span-4 flex justify-center">
+            <img src="https://xmg.xstreamflex.com/i/WLJqnH" alt="Banana Snack Illustration - bannana.png" class="w-32 md:w-full max-w-[150px] object-contain drop-shadow-lg" />
+          </div>
+          <div class="md:col-span-8">
+            <h3 class="font-display text-xl font-bold text-fitmoBlue-900 dark:text-fitmoBlue-300 mb-2">The Power of the Fitmo Banana</h3>
+            <p class="text-sm md:text-base text-slate-600 dark:text-slate-300">
+              Bananas are packed with easily digestible healthy carbs, potassium, and Vitamin B6. When paired with a small handful of nuts or seed butter, they make the ultimate pre-rescue fuel that maintains muscle strength and mental clarity!
+            </p>
+          </div>
+        </div>
+
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-10 mb-4">
+          How to Build a Steady-Energy Plate
+        </h2>
+
+        <p>
+          Keeping your mini-heroes active and positive starts with making healthy snacking exciting. In the Super Fitmo universe, we gamify eating healthy. Try introducing these three core snack components as "Hero Powers" to your kids:
+        </p>
+
+        <ul class="space-y-4 list-none pl-0 my-6">
+          <li class="flex gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-fitmoBlue-500 text-white flex items-center justify-center font-bold text-sm">1</span>
+            <span><strong>Power Up (Complex Carbs):</strong> Oats, whole wheat, apples, berries, and vegetables. These are the slow-burning logs on your internal campfire.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-fitmoOrange-500 text-white flex items-center justify-center font-bold text-sm">2</span>
+            <span><strong>Shield Blocks (Proteins):</strong> Greek yogurt, eggs, cottage cheese, beans, or lean meats. These build strong muscles so children can jump, sprint, and dance along with Super Fitmo.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">3</span>
+            <span><strong>Brain Gears (Healthy Fats):</strong> Avocado, sunflower seeds, almond butter, or chia seeds. Fats support brain development, preventing that dizzy "foggy monster" feeling.</span>
+          </li>
+        </ul>
+
+        <!-- Key Takeaways Box -->
+        <div class="my-10 bg-gradient-to-br from-fitmoBlue-600 to-fitmoBlue-800 text-white p-6 md:p-8 rounded-2xl shadow-xl relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-display font-bold">FITMO</div>
+          <h4 class="font-display text-xl md:text-2xl font-bold mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-clipboard-list text-fitmoOrange-400"></i> Parent's Key Takeaways
+          </h4>
+          <ul class="space-y-3 text-sm md:text-base text-fitmoBlue-100">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-fitmoOrange-400 mt-1"></i>
+              <span>Avoid highly refined sugar snacks before physical playtime. It spikes insulin and leads to behavioral meltdowns.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-fitmoOrange-400 mt-1"></i>
+              <span>Keep pre-cut raw veggies (carrots, cucumber, peppers) with hummus at eye-level in the fridge.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-fitmoOrange-400 mt-1"></i>
+              <span>Turn snack preparation into an edutainment game. Sing a Super Fitmo nutrition song while slicing bananas or blending fruit smoothies together.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-fitmoOrange-400 mt-1"></i>
+              <span>Always carry a protein-rich snack during family outings to intercept "tummy rumbles" before they escalate into "monster mode".</span>
+            </li>
+          </ul>
+        </div>
+
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-10 mb-4">
+          Watch Super Fitmo Battle the Snack Monster!
+        </h2>
+        <p>
+          Want to show your children exactly what happens to a body when it gets overwhelmed by greasy, unhealthy habits? Sit down together and tune in to <a href="https://youtube.com/superfitmo" target="_blank" rel="noopener" class="text-fitmoOrange-500 hover:text-fitmoOrange-600 font-semibold underline">youtube.com/superfitmo</a>. Our high-energy songs make health easy to understand. Through funny narratives, kids learn to identify their feelings, make better nutrition choices independently, and get up to move their bodies with the hero!
+        </p>
+
+      </article>
+
+      <!-- Tags & Share Footer Block -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-8 mt-10 border-t border-slate-200 dark:border-slate-800">
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">#SuperFitmo</span>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">#HealthyEating</span>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">#ActiveKids</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs text-slate-400">Share:</span>
+          <button onclick="shareLink('twitter')" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors">
+            <i class="fa-brands fa-x-twitter text-sm"></i>
+          </button>
+          <button onclick="shareLink('facebook')" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors">
+            <i class="fa-brands fa-facebook-f text-sm"></i>
+          </button>
+          <button onclick="shareLink('pinterest')" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors">
+            <i class="fa-brands fa-pinterest-p text-sm"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- RELATED ARTICLES SECTION -->
+  <section class="bg-slate-100 dark:bg-slate-900/60 py-12 md:py-20 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+        <div>
+          <span class="text-fitmoBlue-600 dark:text-fitmoBlue-400 font-bold text-sm uppercase tracking-wider block mb-2">Keep Reading</span>
+          <h2 class="font-display text-2xl md:text-4xl font-bold text-slate-900 dark:text-white">Related Fitmo Articles</h2>
+        </div>
+        <a href="blog.html" class="inline-flex items-center gap-2 font-display font-semibold text-fitmoOrange-500 hover:text-fitmoOrange-600 group transition-colors">
+          View All Blog Posts
+          <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <!-- RELATED ARTICLES GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Related Article Card 1 (Current - self referential loop but with nice preview fallback) -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col border border-slate-100 dark:border-slate-800/80">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://xmg.xstreamflex.com/i/WqIGFC" alt="fitmohangrycover.png" class="w-full h-full object-cover" />
+            <span class="absolute top-4 left-4 bg-fitmoOrange-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Snacking</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white mb-2 line-clamp-2 hover:text-fitmoOrange-500 transition-colors">
+              <a href="blog-post-1.html">Taming the Hangry Monster: How Healthy Snacks Keep Kids Happy!</a>
+            </h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-6">
+              Learn how to avoid sugar crashes and feed your child the slow-burning premium food fuel their bodies need to avoid turning into monsters.
+            </p>
+            <div class="mt-auto flex items-center justify-between text-xs font-semibold text-slate-400 dark:text-slate-500">
+              <span>Feb 18, 2026</span>
+              <a href="blog-post-1.html" class="text-fitmoBlue-500 hover:underline inline-flex items-center gap-1">Read Now <i class="fa-solid fa-chevron-right text-[9px]"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Article Card 2 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col border border-slate-100 dark:border-slate-800/80">
+          <div class="h-48 overflow-hidden relative">
+            <!-- RELATED POST 2 IMAGE [ASSET 2] -->
+            <img src="https://xmg.xstreamflex.com/i/VjN0zt" alt="Bedtime Routines cover - Copilot_20260529_023729.png" class="w-full h-full object-cover" />
+            <span class="absolute top-4 left-4 bg-purple-500 text-white text-xs font-bold px-2.5 py-1 rounded-full font-display">Sleep Routine</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white mb-2 line-clamp-2 hover:text-fitmoOrange-500 transition-colors">
+              <a href="blog-post-2.html">Defeating the Sleepy Monster: Creating the Ultimate bedtime Routine</a>
+            </h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-6">
+              When kids skip sleep, they become sluggish, grumpy shadow monsters! Discover 4 simple, interactive bedtime rituals to rescue their energy levels.
+            </p>
+            <div class="mt-auto flex items-center justify-between text-xs font-semibold text-slate-400 dark:text-slate-500">
+              <span>Jan 24, 2026</span>
+              <a href="blog-post-2.html" class="text-fitmoBlue-500 hover:underline inline-flex items-center gap-1">Read Now <i class="fa-solid fa-chevron-right text-[9px]"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Article Card 3 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col border border-slate-100 dark:border-slate-800/80">
+          <div class="h-48 overflow-hidden relative">
+            <!-- RELATED POST 3 IMAGE [ASSET 1] -->
+            <img src="https://xmg.xstreamflex.com/i/SGPBqZ" alt="Active Play cover - Copilot_20260104_235718.png" class="w-full h-full object-cover" />
+            <span class="absolute top-4 left-4 bg-fitmoBlue-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">Fitness Play</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="font-display text-lg font-bold text-slate-900 dark:text-white mb-2 line-clamp-2 hover:text-fitmoOrange-500 transition-colors">
+              <a href="blog-post-3.html">Edutainment at Home: Turn Screen Time into Fun Exercise!</a>
+            </h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-6">
+              Who says screens make kids lazy? Explore how Super Fitmo uses physical challenges, catchy music, and stories to get children moving actively.
+            </p>
+            <div class="mt-auto flex items-center justify-between text-xs font-semibold text-slate-400 dark:text-slate-500">
+              <span>Dec 15, 2025</span>
+              <a href="blog-post-3.html" class="text-fitmoBlue-500 hover:underline inline-flex items-center gap-1">Read Now <i class="fa-solid fa-chevron-right text-[9px]"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEWSLETTER INLINE CONVERSION CTA -->
+  <section class="bg-gradient-to-r from-fitmoOrange-500 to-fitmoOrange-600 text-white py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="font-display text-2xl md:text-3xl font-bold mb-2">Get More Super Fitmo Tips!</h3>
+      <p class="text-sm md:text-base text-fitmoOrange-50 max-w-2xl mx-auto mb-6">
+        Sign up for our monthly newsletter packed with screen-free game printables, recipe ideas, and sneak peeks at new video episodes!
+      </p>
+      <form onsubmit="handleFormSubmit(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
+        <input type="email" placeholder="Your best email address" required class="flex-grow px-4 py-3 rounded-xl sm:rounded-l-xl sm:rounded-r-none text-slate-800 placeholder-slate-400 font-medium focus:outline-none focus:ring-2 focus:ring-fitmoBlue-400" />
+        <button type="submit" class="px-6 py-3 rounded-xl sm:rounded-r-xl sm:rounded-l-none bg-slate-900 text-white font-display font-semibold hover:bg-slate-850 transition-colors">
+          Subscribe
+        </button>
+      </form>
+      <span id="newsletterMessage" class="hidden block mt-3 text-xs font-semibold text-fitmoOrange-100">🎉 Welcome to the Rescue Team! Check your inbox soon.</span>
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER -->
+  
+
+  <!-- DYNAMIC LOGIC SCRIPT (DARK MODE, MOBILE MENU, SOCIAL SHARE, NEWSLETTER) -->
+  <script>
+    // Theme Management (Supports exact buttons inside template)
+    const btnDesktop = document.getElementById('theme-toggle-btn');
+    const btnMobile = document.getElementById('theme-toggle-btn-mobile');
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Init theme based on storage or system default
+    const storedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+      applyTheme('dark');
+    } else {
+      applyTheme('light');
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      applyTheme(isDark ? 'light' : 'dark');
+    }
+
+    if(btnDesktop) btnDesktop.addEventListener('click', toggleTheme);
+    if(btnMobile) btnMobile.addEventListener('click', toggleTheme);
+
+    // Mobile Menu Drawer Handler
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Newsletter Submission Logic
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const message = document.getElementById('newsletterMessage');
+      if (message) {
+        message.classList.remove('hidden');
+        e.target.reset();
+        setTimeout(() => {
+          message.classList.add('hidden');
+        }, 5000);
+      }
+    }
+
+    // Social Sharing Helper Functions
+    function shareLink(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      let targetUrl = '';
+
+      switch (platform) {
+        case 'twitter':
+          targetUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+          break;
+        case 'facebook':
+          targetUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+          break;
+        case 'pinterest':
+          targetUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${title}`;
+          break;
+      }
+
+      if (targetUrl) {
+        window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes');
+      }
+    }
+
+    function copyToClipboard() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const tooltip = document.getElementById('copyTooltip');
+        if (tooltip) {
+          tooltip.classList.remove('opacity-0');
+          tooltip.classList.add('opacity-100');
+          setTimeout(() => {
+            tooltip.classList.remove('opacity-100');
+            tooltip.classList.add('opacity-0');
+          }, 2000);
+        }
+      }).catch(err => {
+        console.error('Could not copy text: ', err);
+      });
+    }
+  </script>
+
+<footer class="bg-slate-900 text-slate-400 pt-16 pb-8 border-t border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 pb-12 border-b border-slate-800">
+        
+        <!-- Brand Block -->
+        <div class="col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="https://xmg.xstreamflex.com/i/ztMa77.ico" alt="Super Fitmo Logo" class="w-9 h-9" />
+            <span class="font-display text-xl font-bold tracking-tight text-white">
+              Super Fitmo
+            </span>
+          </a>
+          <p class="text-sm text-slate-400">
+            Empowering healthy, active lifestyles for kids. Transforming groggy monsters into bright, energetic heroes through simple habits, catchy songs, and energetic fitness play.
+          </p>
+          <div class="flex gap-4 pt-2">
+            <a href="https://youtube.com/superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="YouTube"><i class="fa-brands fa-youtube text-lg"></i></a>
+            <a href="https://tiktok.com/@superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="TikTok"><i class="fa-brands fa-tiktok text-lg"></i></a>
+            <a href="https://instagram.com/superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Resources</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="watch.html" class="hover:text-white transition-colors">Watch Episodes</a></li>
+            <li><a href="products.html" class="hover:text-white transition-colors">Printables & Fun</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Health & Parenting</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Company</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white transition-colors">About Fitmo</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="space-y-4 col-span-2">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Legal & Contact</h5>
+          <p class="text-xs text-slate-500">
+            Super Fitmo provides educational entertainment. Consult your pediatrician regarding family nutrition and physical habits.
+          </p>
+          <ul class="space-y-2 text-sm pt-2">
+            <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Legal footer note -->
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+        <p>© 2026 Super Fitmo. All rights reserved. Videos, characters, and assets are copyrighted property.</p>
+        <div class="flex gap-4">
+          <a href="privacy.html" class="hover:underline">Privacy</a>
+          <a href="terms.html" class="hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>
+(function() {
+  function initNavControls() {
+    const btn = document.getElementById('mobile-menu-btn') || document.querySelector('[data-menu-toggle]');
+    const menu = document.getElementById('mobile-menu') || document.querySelector('[data-menu-content]');
+    if (btn && menu) {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      };
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    }
+    const themeBtn = document.getElementById('theme-toggle-btn') || document.querySelector('[data-theme-toggle]');
+    if (themeBtn) {
+      themeBtn.onclick = function(e) {
+        e.stopPropagation();
+        document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('xsites_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); } catch(err){}
+      };
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavControls);
+  } else {
+    initNavControls();
+  }
+})();
+</script>
+<script>
+    // --- Dark/Light Mode Theme Toggle ---
+    const htmlElement = document.documentElement;
+    const themeBtnDesktop = document.getElementById('theme-toggle-btn');
+    const themeBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+
+    // Toggle logic
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        htmlElement.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.remove('light');
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Assign listeners
+    if (themeBtnDesktop) themeBtnDesktop.addEventListener('click', toggleTheme);
+    if (themeBtnMobile) themeBtnMobile.addEventListener('click', toggleTheme);
+
+    // Initial check (from system/localstorage preference)
+    const storedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
+      htmlElement.classList.remove('light');
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+      htmlElement.classList.add('light');
+    }
+
+    // --- Mobile Menu Toggle ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
