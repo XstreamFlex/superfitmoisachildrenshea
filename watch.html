@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch Super Fitmo - Active Fun Edutainment for Kids</title>
+  
+  <!-- MANDATORY FAVICON [ASSET 5] -->
+  <link rel="icon" href="https://xmg.xstreamflex.com/i/ztMa77.ico" type="image/x-icon" />
+
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            fitmoBlue: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              900: '#0c4a6e',
+            },
+            fitmoOrange: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              900: '#7c2d12',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .bounce-slow {
+      animation: bounce 3s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-4%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+      }
+      50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+      }
+    }
+    .shimmer {
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+      background-size: 200% 100%;
+      animation: loading-shimmer 1.5s infinite;
+    }
+    @keyframes loading-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-fitmoBlue-100 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://xmg.xstreamflex.com/i/ztMa77.ico" alt="Super Fitmo Logo Icon" class="w-10 h-10 transform group-hover:scale-110 transition-transform duration-300" />
+        <span class="font-display text-2xl font-bold tracking-tight bg-gradient-to-r from-fitmoBlue-600 to-fitmoOrange-500 bg-clip-text text-transparent">
+          Super Fitmo
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-fitmoBlue-600 dark:text-fitmoBlue-400 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500">Home</a>
+        <a href="watch.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Watch Now</a>
+        <a href="about.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">About</a>
+        <a href="products.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Products</a>
+        <a href="blog.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Blog</a>
+        <a href="contact.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Contact</a>
+      </nav>
+
+      <!-- Utility Actions (Theme & CTA) -->
+      <div class="hidden lg:flex items-center gap-4">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" class="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors duration-200 focus:outline-none" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+        </button>
+
+        <a href="watch.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full font-display font-semibold text-white bg-fitmoOrange-500 hover:bg-fitmoOrange-600 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+          Join the Rescue!
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button & Theme Action -->
+      <div class="flex items-center gap-3 lg:hidden">
+        <button id="theme-toggle-btn-mobile" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors duration-200" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon dark:hidden"></i>
+          <i class="fa-solid fa-sun hidden dark:block"></i>
+        </button>
+        <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-4 pb-6 space-y-3 transition-all duration-300 shadow-inner">
+      <a href="index.html" class="block px-4 py-2.5 rounded-lg bg-fitmoBlue-50 dark:bg-slate-800 text-fitmoBlue-600 dark:text-fitmoBlue-400 font-semibold">Home</a>
+      <a href="watch.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Watch Now</a>
+      <a href="about.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">About Us</a>
+      <a href="products.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Products</a>
+      <a href="blog.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Blog</a>
+      <a href="contact.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Contact</a>
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+        <a href="watch.html" class="block w-full text-center py-3 rounded-full font-display font-semibold text-white bg-fitmoOrange-500 hover:bg-fitmoOrange-600 shadow-md">
+          Join the Rescue!
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- GLOBAL HEADER NAVIGATION -->
+  
+
+  <!-- HERO BANNER SECTION -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-fitmoBlue-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-12 md:py-20 transition-colors duration-300">
+    <div class="absolute inset-0 bg-[radial-gradient(#bae6fd_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Text & Engagement -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-fitmoOrange-100 dark:bg-fitmoOrange-950 text-fitmoOrange-600 dark:text-fitmoOrange-300 font-semibold text-sm tracking-wider uppercase">
+            <span class="flex h-2 w-2 rounded-full bg-fitmoOrange-500 animate-ping"></span>
+            Super Fitmo's Screening Room
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white leading-tight">
+            Stop the Monsters, <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-fitmoBlue-600 to-fitmoOrange-500 bg-clip-text text-transparent">Get Kids Moving!</span>
+          </h1>
+          <p class="text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0">
+            Welcome to the official video hub! Join Super Fitmo as he rescues children whose lack of sleep, unhealthy snacks, and low physical activity have turned them into silly, grumpy monsters. Watch, sing, and dance along!
+          </p>
+          <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+            <a href="#interactive-theater" class="px-8 py-3.5 rounded-full font-display font-semibold text-white bg-fitmoBlue-600 hover:bg-fitmoBlue-700 shadow-lg hover:shadow-fitmoBlue-300/50 transition-all duration-300 hover:-translate-y-0.5">
+              <i class="fa-solid fa-play mr-2"></i> Start Watching Now
+            </a>
+            <a href="https://youtube.com/superfitmo" target="_blank" rel="noopener" class="px-8 py-3.5 rounded-full font-display font-semibold text-slate-700 dark:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-fitmoOrange-500 dark:hover:border-fitmoOrange-500 transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2">
+              <i class="fa-brands fa-youtube text-red-600 text-lg"></i> YouTube Channel
+            </a>
+          </div>
+        </div>
+
+        <!-- Featured Badge Hero (Asset 1) -->
+        <div class="lg:col-span-5 relative">
+          <div class="absolute -inset-4 bg-gradient-to-r from-fitmoBlue-500 to-fitmoOrange-500 rounded-3xl blur-2xl opacity-20 dark:opacity-40 animate-pulse"></div>
+          <div class="relative bg-white dark:bg-slate-900 p-4 rounded-3xl border border-fitmoBlue-100 dark:border-slate-800 shadow-2xl transition-all hover:scale-105 duration-500">
+            <!-- [ASSET 1] -->
+            <img src="https://xmg.xstreamflex.com/i/SGPBqZ" alt="Copilot Sleep Monster Rescue Cover" class="rounded-2xl shadow-lg w-full object-cover h-64 sm:h-80" />
+            
+            <div class="absolute bottom-6 left-6 right-6 bg-slate-900/90 backdrop-blur-md text-white p-4 rounded-xl border border-white/10">
+              <span class="text-xs uppercase font-bold text-fitmoOrange-400 tracking-wider">Latest Rescue Adventure</span>
+              <h3 class="font-display text-lg font-bold">The No-Sleep Night Sloth!</h3>
+              <p class="text-xs text-slate-300 mt-1">Can Super Fitmo save Luna before morning school bells ring?</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE THEATER SECTION -->
+  <section id="interactive-theater" class="py-16 bg-white dark:bg-slate-900 transition-colors duration-300 border-y border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+          Interactive Video Player
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Click any episode below to update the screen. Join Super Fitmo in real-time and power up the "Monster Cure Ray" by exercising alongside the episodes!
+        </p>
+      </div>
+
+      <!-- Video Grid Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Interactive Player Container (Left / Top) -->
+        <div class="lg:col-span-8 flex flex-col space-y-6">
+          <div class="relative aspect-video rounded-3xl overflow-hidden bg-black shadow-2xl border-4 border-fitmoBlue-100 dark:border-slate-800 group">
+            
+            <!-- Dynamic Video Cover (Mock Playing Area) -->
+            <img id="video-screen-cover" src="https://xmg.xstreamflex.com/i/WqIGFC" alt="Playing Super Fitmo" class="w-full h-full object-cover transition-all duration-500" />
+            
+            <!-- Video Overlay Controls & Simulation State -->
+            <div id="video-overlay" class="absolute inset-0 bg-slate-950/40 flex flex-col justify-between p-6 transition-all duration-300">
+              
+              <!-- Upper badge -->
+              <div class="flex justify-between items-center">
+                <span id="video-tag" class="px-3.5 py-1 rounded-full text-xs font-bold bg-fitmoOrange-500 text-white shadow-md uppercase tracking-wide">
+                  Eating Habit Rescue
+                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-black/60 text-white backdrop-blur-sm">
+                  <i class="fa-solid fa-eye mr-1 text-fitmoBlue-400"></i> <span id="mock-views">1.2M plays</span>
+                </span>
+              </div>
+
+              <!-- Huge Play Button Center -->
+              <div class="self-center">
+                <button id="player-play-btn" class="w-20 h-20 rounded-full bg-fitmoOrange-500 hover:bg-fitmoOrange-600 text-white flex items-center justify-center text-3xl shadow-2xl transition-all hover:scale-110 active:scale-95 focus:outline-none">
+                  <i id="play-icon" class="fa-solid fa-play ml-1"></i>
+                </button>
+              </div>
+
+              <!-- Custom Interactive Status / Progress Bar -->
+              <div class="space-y-2">
+                <div class="flex justify-between items-center text-xs text-white font-semibold drop-shadow">
+                  <span id="video-current-time">0:00</span>
+                  <span id="video-total-duration">6:42</span>
+                </div>
+                <div class="w-full bg-white/20 h-2 rounded-full overflow-hidden cursor-pointer" id="progress-bar-container">
+                  <div id="video-progress-bar" class="bg-fitmoOrange-500 h-full w-0 transition-all duration-100"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Sound Wave Visualizer Mock when playing -->
+            <div id="visualizer" class="absolute top-4 right-4 flex items-end gap-1 h-6 hidden">
+              <span class="w-1 bg-fitmoBlue-400 animate-[bounce_1s_infinite]"></span>
+              <span class="w-1 bg-fitmoOrange-500 animate-[bounce_1.2s_infinite]"></span>
+              <span class="w-1 bg-fitmoBlue-400 animate-[bounce_0.8s_infinite]"></span>
+              <span class="w-1 bg-fitmoOrange-500 animate-[bounce_1.4s_infinite]"></span>
+            </div>
+          </div>
+
+          <!-- Video Title & Details -->
+          <div class="bg-fitmoBlue-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-fitmoBlue-100 dark:border-slate-800 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="space-y-1">
+                <h3 id="video-active-title" class="font-display text-2xl font-bold text-slate-900 dark:text-white">
+                  Episode 1: The Midnight Hangry Monster!
+                </h3>
+                <p id="video-active-desc" class="text-sm text-slate-600 dark:text-slate-300">
+                  Grumpy Hank turns into a growling Hangry Monster because he skipped critical nutrients. Super Fitmo saves him with awesome music and crunchy veggies!
+                </p>
+              </div>
+              
+              <!-- Quick Actions -->
+              <div class="flex gap-2">
+                <button id="like-btn" class="px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:text-fitmoOrange-500 transition-colors flex items-center gap-2 text-sm font-semibold shadow-sm">
+                  <i class="fa-solid fa-thumbs-up"></i> <span id="like-count">4.8k</span>
+                </button>
+                <button class="px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:text-fitmoBlue-500 transition-colors flex items-center gap-2 text-sm font-semibold shadow-sm" onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to share with parents!');">
+                  <i class="fa-solid fa-share-nodes"></i> Share
+                </button>
+              </div>
+            </div>
+
+            <!-- Kid Interactive Rescue Panel -->
+            <div class="bg-gradient-to-r from-fitmoOrange-500 to-fitmoOrange-600 rounded-xl p-5 text-white shadow-lg space-y-3 relative overflow-hidden">
+              <div class="absolute -right-12 -bottom-12 opacity-10 text-9xl pointer-events-none">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h4 class="font-display text-lg font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles animate-pulse"></i> Power the Monster Cure Ray!
+                  </h4>
+                  <p class="text-xs text-fitmoOrange-100 max-w-md">
+                    Follow the actions below to help Super Fitmo cure the monster. Keep pressing to fill the active health meter!
+                  </p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold bg-white/20 px-3 py-1.5 rounded-full" id="cure-percentage">Meter: 0%</span>
+                  <div class="w-24 bg-white/30 h-3 rounded-full overflow-hidden border border-white/20">
+                    <div id="cure-bar" class="bg-white h-full w-0 transition-all duration-300"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Workout triggers -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                <button onclick="boostCure(15, 'Do 5 Jumping Jacks!')" class="py-2.5 px-3 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold border border-white/10 active:scale-95 transition-all text-center">
+                  🤸 Jumping Jacks
+                </button>
+                <button onclick="boostCure(15, 'Do the Fitmo Muscle Flex Pose!')" class="py-2.5 px-3 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold border border-white/10 active:scale-95 transition-all text-center">
+                  💪 Fitmo Muscle Flex
+                </button>
+                <button onclick="boostCure(15, 'Run in place fast!')" class="py-2.5 px-3 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold border border-white/10 active:scale-95 transition-all text-center">
+                  🏃 High Knees Run
+                </button>
+                <button onclick="boostCure(15, 'Reach for the stars!')" class="py-2.5 px-3 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold border border-white/10 active:scale-95 transition-all text-center">
+                  ⭐ Star Reacher
+                </button>
+              </div>
+
+              <!-- Interactive prompt text -->
+              <p id="activity-prompt" class="text-xs text-center text-fitmoOrange-100 italic pt-1 font-semibold">
+                Click any exercise button above to start your rescue helper workout!
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Episodes Playlist Sidebar (Right / Bottom) -->
+        <div class="lg:col-span-4 flex flex-col space-y-6">
+          <div class="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-700">
+              <h4 class="font-display text-lg font-bold text-slate-900 dark:text-white">
+                Choose Adventure
+              </h4>
+              <span class="text-xs font-semibold px-2 py-1 bg-fitmoBlue-100 dark:bg-fitmoBlue-950 text-fitmoBlue-600 dark:text-fitmoBlue-400 rounded-full">
+                4 Rescue Missions
+              </span>
+            </div>
+
+            <!-- Playlist Scroll Container -->
+            <div class="space-y-4 max-h-[500px] overflow-y-auto pr-1">
+              
+              <!-- Episode Item 1 (Asset 3 - fitmohangrycover) -->
+              <div onclick="switchVideo(1)" id="ep-1" class="playlist-item cursor-pointer p-3 rounded-xl border-2 border-fitmoOrange-500 bg-fitmoOrange-50/50 dark:bg-fitmoOrange-950/20 transition-all hover:scale-[1.01] flex gap-3">
+                <div class="w-24 h-16 rounded-lg overflow-hidden flex-shrink-0 relative">
+                  <!-- [ASSET 3] -->
+                  <img src="https://xmg.xstreamflex.com/i/WqIGFC" alt="The Midnight Hangry Monster Cover" class="w-full h-full object-cover" />
+                  <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] font-bold px-1 rounded">6:42</span>
+                </div>
+                <div class="space-y-1 min-w-0">
+                  <span class="text-[10px] font-bold uppercase text-fitmoOrange-600 dark:text-fitmoOrange-400">Episode 1</span>
+                  <h5 class="text-sm font-bold text-slate-900 dark:text-white truncate">The Midnight Hangry Monster</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Skip nutritional fuel & growl!</p>
+                </div>
+              </div>
+
+              <!-- Episode Item 2 (Asset 4 - banana) -->
+              <div onclick="switchVideo(2)" id="ep-2" class="playlist-item cursor-pointer p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-all hover:scale-[1.01] flex gap-3">
+                <div class="w-24 h-16 rounded-lg overflow-hidden flex-shrink-0 relative">
+                  <!-- [ASSET 4] -->
+                  <img src="https://xmg.xstreamflex.com/i/WLJqnH" alt="The Banana-Split Slippers Cover" class="w-full h-full object-cover" />
+                  <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] font-bold px-1 rounded">5:15</span>
+                </div>
+                <div class="space-y-1 min-w-0">
+                  <span class="text-[10px] font-bold uppercase text-fitmoBlue-600 dark:text-fitmoBlue-400">Episode 2</span>
+                  <h5 class="text-sm font-bold text-slate-900 dark:text-white truncate">The Banana-Split Slippers</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Slipping into high sugar crashes!</p>
+                </div>
+              </div>
+
+              <!-- Episode Item 3 (Asset 2) -->
+              <div onclick="switchVideo(3)" id="ep-3" class="playlist-item cursor-pointer p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-all hover:scale-[1.01] flex gap-3">
+                <div class="w-24 h-16 rounded-lg overflow-hidden flex-shrink-0 relative">
+                  <!-- [ASSET 2] -->
+                  <img src="https://xmg.xstreamflex.com/i/VjN0zt" alt="The Screen-Staring Slime Cover" class="w-full h-full object-cover" />
+                  <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] font-bold px-1 rounded">7:10</span>
+                </div>
+                <div class="space-y-1 min-w-0">
+                  <span class="text-[10px] font-bold uppercase text-fitmoOrange-600 dark:text-fitmoOrange-400">Episode 3</span>
+                  <h5 class="text-sm font-bold text-slate-900 dark:text-white truncate">The Screen-Staring Slime</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Glued to screens all day & lazy!</p>
+                </div>
+              </div>
+
+              <!-- Episode Item 4 (Asset 1) -->
+              <div onclick="switchVideo(4)" id="ep-4" class="playlist-item cursor-pointer p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-all hover:scale-[1.01] flex gap-3">
+                <div class="w-24 h-16 rounded-lg overflow-hidden flex-shrink-0 relative">
+                  <!-- [ASSET 1] -->
+                  <img src="https://xmg.xstreamflex.com/i/SGPBqZ" alt="The Sleepy Sloth Monster Cover" class="w-full h-full object-cover" />
+                  <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] font-bold px-1 rounded">8:05</span>
+                </div>
+                <div class="space-y-1 min-w-0">
+                  <span class="text-[10px] font-bold uppercase text-fitmoBlue-600 dark:text-fitmoBlue-400">Episode 4</span>
+                  <h5 class="text-sm font-bold text-slate-900 dark:text-white truncate">The No-Sleep Night Sloth</h5>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Staying up too late triggers shadow!</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- YouTube Channel Link Button -->
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-700">
+              <a href="https://youtube.com/superfitmo" target="_blank" rel="noopener" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-display font-semibold transition-colors duration-200 shadow-md">
+                <i class="fa-brands fa-youtube text-lg"></i> Watch All on YouTube
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SOCIAL CHANNELS SECTION -->
+  <section class="py-16 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Layout Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-fitmoBlue-100 dark:bg-fitmoBlue-950 text-fitmoBlue-600 dark:text-fitmoBlue-300 font-semibold text-sm tracking-wider uppercase">
+            🚀 Keep the Momentum Going
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+            Find #SuperFitmo Everyday!
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300">
+            Super Fitmo's movement and habits educational lessons don't stop here. We post short daily dances, active mini-challenges, and monster cure guides across major platforms! Share your workout clips with the hashtag <span class="font-bold text-fitmoOrange-500">#superfitmo</span>.
+          </p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- YouTube Box -->
+            <a href="https://youtube.com/superfitmo" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-red-500 dark:hover:border-red-500 transition-all hover:-translate-y-1 duration-300 flex flex-col justify-between h-36">
+              <div class="flex items-center justify-between">
+                <i class="fa-brands fa-youtube text-3xl text-red-600"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">YouTube</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Interactive episodes & songs</p>
+              </div>
+            </a>
+
+            <!-- TikTok Box -->
+            <a href="https://tiktok.com/@superfitmo" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-black dark:hover:border-white transition-all hover:-translate-y-1 duration-300 flex flex-col justify-between h-36">
+              <div class="flex items-center justify-between">
+                <i class="fa-brands fa-tiktok text-3xl text-slate-900 dark:text-white"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">TikTok</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Dances & quick exercises</p>
+              </div>
+            </a>
+
+            <!-- Instagram Box -->
+            <a href="https://instagram.com/superfitmo" target="_blank" rel="noopener" class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-pink-500 dark:hover:border-pink-500 transition-all hover:-translate-y-1 duration-300 flex flex-col justify-between h-36">
+              <div class="flex items-center justify-between">
+                <i class="fa-brands fa-instagram text-3xl text-pink-600"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Instagram</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Parenting ideas & printables</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-tr from-fitmoBlue-400 to-fitmoOrange-500 rounded-3xl blur-3xl opacity-15"></div>
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800">
+            <!-- [ASSET 2] -->
+            <img src="https://xmg.xstreamflex.com/i/VjN0zt" alt="Kids active monster workout session" class="w-full object-cover h-96" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end p-6">
+              <div class="text-white space-y-1">
+                <p class="text-xs font-bold text-fitmoOrange-400 uppercase tracking-widest">Active Kids, Happy Kids</p>
+                <h3 class="font-display text-xl font-bold">Rescuing Kids From Screen-Stare Zombie Slime!</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENT'S CORNER EDUCATIONAL FAQ -->
+  <section class="py-16 bg-white dark:bg-slate-900 transition-colors duration-300 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Title -->
+      <div class="text-center space-y-3 mb-12">
+        <div class="text-xs font-bold uppercase tracking-widest text-fitmoBlue-600 dark:text-fitmoBlue-400">Expert Edutainment Guidance</div>
+        <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">
+          The Parent's Corner: Screen Time That Moves!
+        </h2>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          How to turn Super Fitmo videos into physical family challenges.
+        </p>
+      </div>
+
+      <!-- FAQ Accordions -->
+      <div class="space-y-4">
+        
+        <div class="border border-slate-100 dark:border-slate-800 rounded-2xl p-5 bg-slate-50 dark:bg-slate-800/40">
+          <h4 class="font-display font-semibold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap text-fitmoOrange-500"></i> Why does Super Fitmo use the "Monster" theme?
+          </h4>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+            Children often struggle to vocalize why they are feeling fussy, tired, or angry. By projecting these biological states into cute "monsters" (like the Hangry Monster or the No-Sleep Night Sloth), kids learn to identify physical sensations and link them directly to habits like nutrition, sleep, and physical play!
+          </p>
+        </div>
+
+        <div class="border border-slate-100 dark:border-slate-800 rounded-2xl p-5 bg-slate-50 dark:bg-slate-800/40">
+          <h4 class="font-display font-semibold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+            <i class="fa-solid fa-child-reaching text-fitmoBlue-500"></i> How do I get my child to physically move during videos?
+          </h4>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+            Super Fitmo's videos contain rhythmic, repetitive dance-along callouts and musical sequences specifically made for physical feedback! Try clearing a small area in the room, click play, and compete together to see who can generate the most "monster cure" energy.
+          </p>
+        </div>
+
+        <div class="border border-slate-100 dark:border-slate-800 rounded-2xl p-5 bg-slate-50 dark:bg-slate-800/40">
+          <h4 class="font-display font-semibold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+            <i class="fa-solid fa-apple-whole text-fitmoOrange-500"></i> Are there physical companion products?
+          </h4>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+            Yes! Visit our <a href="products.html" class="text-fitmoBlue-500 hover:underline font-bold">Products page</a> to download printable monster checklist sheets, weekly sleep calendars, and fun sticker patterns to reward positive habits!
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER -->
+  
+
+  <!-- DYNAMIC JAVASCRIPT LOGIC -->
+  <script>
+    // Theme Switcher Logic
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+    const htmlElement = document.documentElement;
+
+    function initTheme() {
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        htmlElement.classList.add('dark');
+      } else {
+        htmlElement.classList.remove('dark');
+      }
+    }
+
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleTheme);
+    initTheme();
+
+    // Mobile Navigation Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // INTERACTIVE MOVIE PLAYER MOCK DATABASE
+    const epDatabase = {
+      1: {
+        title: "Episode 1: The Midnight Hangry Monster!",
+        desc: "Grumpy Hank turns into a growling Hangry Monster because he skipped critical nutrients. Super Fitmo saves him with awesome music and crunchy veggies!",
+        tag: "Nutritious Eating Rescue",
+        views: "1.2M plays",
+        duration: "6:42",
+        // [ASSET 3]
+        cover: "https://xmg.xstreamflex.com/i/WqIGFC"
+      },
+      2: {
+        title: "Episode 2: The Banana-Split Slippers!",
+        desc: "Slippery Bella keeps slipping into bad sugar crashes. Watch as Super Fitmo demonstrates natural fruit energy and delicious snacks!",
+        tag: "Healthy Sugar Habits",
+        views: "890K plays",
+        duration: "5:15",
+        // [ASSET 4]
+        cover: "https://xmg.xstreamflex.com/i/WLJqnH"
+      },
+      3: {
+        title: "Episode 3: The Screen-Staring Slime Zombie!",
+        desc: "Staring at tablet screen games for hours turned Ben into a slow-moving zombie slime! Super Fitmo uses epic music beats to get him jumping and crawling!",
+        tag: "Active Play Rescue",
+        views: "2.1M plays",
+        duration: "7:10",
+        // [ASSET 2]
+        cover: "https://xmg.xstreamflex.com/i/VjN0zt"
+      },
+      4: {
+        title: "Episode 4: The No-Sleep Night Sloth!",
+        desc: "Staying up late makes Luna a cranky shadow monster who can't do anything fun the next day. Find out how sweet dreams give you Super Fitmo superpowers!",
+        tag: "Power Rest Sleep",
+        views: "1.5M plays",
+        duration: "8:05",
+        // [ASSET 1]
+        cover: "https://xmg.xstreamflex.com/i/SGPBqZ"
+      }
+    };
+
+    // Global Interactive Player States
+    let currentEpisodeId = 1;
+    let isPlaying = false;
+    let progressTimer = null;
+    let progressPct = 0;
+    let activeLikes = 4800;
+
+    const screenCover = document.getElementById('video-screen-cover');
+    const overlay = document.getElementById('video-overlay');
+    const playBtn = document.getElementById('player-play-btn');
+    const playIcon = document.getElementById('play-icon');
+    const progressFill = document.getElementById('video-progress-bar');
+    const timeDisplay = document.getElementById('video-current-time');
+    const durationDisplay = document.getElementById('video-total-duration');
+    const titleDisplay = document.getElementById('video-active-title');
+    const descDisplay = document.getElementById('video-active-desc');
+    const tagDisplay = document.getElementById('video-tag');
+    const viewDisplay = document.getElementById('mock-views');
+    const likeDisplay = document.getElementById('like-count');
+    const visualizer = document.getElementById('visualizer');
+
+    // Change current movie episode
+    function switchVideo(id) {
+      currentEpisodeId = id;
+      const data = epDatabase[id];
+
+      // Reset mock player settings
+      stopMockPlayer();
+      progressPct = 0;
+      progressFill.style.width = '0%';
+      timeDisplay.textContent = '0:00';
+
+      // Update Player Metadata
+      screenCover.src = data.cover;
+      titleDisplay.textContent = data.title;
+      descDisplay.textContent = data.desc;
+      tagDisplay.textContent = data.tag;
+      viewDisplay.textContent = data.views;
+      durationDisplay.textContent = data.duration;
+
+      // Update playlist selection styling
+      document.querySelectorAll('.playlist-item').forEach(item => {
+        item.classList.remove('border-fitmoOrange-500', 'bg-fitmoOrange-50/50', 'dark:bg-fitmoOrange-950/20');
+        item.classList.add('border-slate-200', 'dark:border-slate-700');
+      });
+      const activeItem = document.getElementById(`ep-${id}`);
+      activeItem.classList.remove('border-slate-200', 'dark:border-slate-700');
+      activeItem.classList.add('border-fitmoOrange-500', 'bg-fitmoOrange-50/50', 'dark:bg-fitmoOrange-950/20');
+
+      // Refresh activity panel hint
+      document.getElementById('activity-prompt').textContent = `Click any exercise button below to help cure Episode ${id}'s monster!`;
+    }
+
+    // Toggle simulated playing state
+    function togglePlay() {
+      if (isPlaying) {
+        stopMockPlayer();
+      } else {
+        startMockPlayer();
+      }
+    }
+
+    function startMockPlayer() {
+      isPlaying = true;
+      playIcon.className = 'fa-solid fa-pause';
+      visualizer.classList.remove('hidden');
+
+      // Fetch active duration to compute second chunks
+      const durationStr = epDatabase[currentEpisodeId].duration;
+      const [minutes, seconds] = durationStr.split(':').map(Number);
+      const totalSec = (minutes * 60) + seconds;
+
+      progressTimer = setInterval(() => {
+        progressPct += (100 / totalSec);
+        if (progressPct >= 100) {
+          progressPct = 100;
+          stopMockPlayer();
+        }
+        progressFill.style.width = `${progressPct}%`;
+
+        // Calculate current clock display
+        const currentTotalSec = Math.floor((progressPct / 100) * totalSec);
+        const currMin = Math.floor(currentTotalSec / 60);
+        const currSec = currentTotalSec % 60;
+        timeDisplay.textContent = `${currMin}:${currSec < 10 ? '0' : ''}${currSec}`;
+      }, 1000);
+    }
+
+    function stopMockPlayer() {
+      isPlaying = false;
+      playIcon.className = 'fa-solid fa-play ml-1';
+      visualizer.classList.add('hidden');
+      if (progressTimer) {
+        clearInterval(progressTimer);
+      }
+    }
+
+    playBtn.addEventListener('click', togglePlay);
+
+    // Interactive Game "Cure Ray" logic
+    let curePoints = 0;
+    const cureBar = document.getElementById('cure-bar');
+    const cureLabel = document.getElementById('cure-percentage');
+    const activePrompt = document.getElementById('activity-prompt');
+
+    function boostCure(amount, message) {
+      curePoints += amount;
+      if (curePoints > 100) curePoints = 100;
+
+      cureBar.style.width = `${curePoints}%`;
+      cureLabel.textContent = `Meter: ${curePoints}%`;
+      activePrompt.textContent = `Keep going! ${message}`;
+
+      // Check for win/cure condition
+      if (curePoints === 100) {
+        activePrompt.textContent = "🎉 SUCCESS! The monster was cured and turned back into a happy, energetic kid! You are a hero!";
+        setTimeout(() => {
+          if (confirm("Hooray! You cured the monster of this episode. Want to watch Super Fitmo's next episode rescue?")) {
+            // cycle to next
+            let nextEp = currentEpisodeId + 1;
+            if (nextEp > 4) nextEp = 1;
+            switchVideo(nextEp);
+            curePoints = 0;
+            cureBar.style.width = '0%';
+            cureLabel.textContent = 'Meter: 0%';
+          }
+        }, 1500);
+      }
+    }
+
+    // Like Button increment simulated logic
+    const likeBtn = document.getElementById('like-btn');
+    let hasLiked = false;
+    likeBtn.addEventListener('click', () => {
+      if (!hasLiked) {
+        activeLikes++;
+        likeDisplay.textContent = `${(activeLikes / 1000).toFixed(1)}k`;
+        likeBtn.classList.add('text-fitmoOrange-500');
+        hasLiked = true;
+      } else {
+        activeLikes--;
+        likeDisplay.textContent = `${(activeLikes / 1000).toFixed(1)}k`;
+        likeBtn.classList.remove('text-fitmoOrange-500');
+        hasLiked = false;
+      }
+    });
+
+    // Custom Scrubbing Progress Bar Mock
+    const progressContainer = document.getElementById('progress-bar-container');
+    progressContainer.addEventListener('click', (e) => {
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      progressPct = (clickX / width) * 100;
+      progressFill.style.width = `${progressPct}%`;
+      if (isPlaying) {
+        // Restart mock clock using update percentage
+        stopMockPlayer();
+        startMockPlayer();
+      } else {
+        const durationStr = epDatabase[currentEpisodeId].duration;
+        const [minutes, seconds] = durationStr.split(':').map(Number);
+        const totalSec = (minutes * 60) + seconds;
+        const currentTotalSec = Math.floor((progressPct / 100) * totalSec);
+        const currMin = Math.floor(currentTotalSec / 60);
+        const currSec = currentTotalSec % 60;
+        timeDisplay.textContent = `${currMin}:${currSec < 10 ? '0' : ''}${currSec}`;
+      }
+    });
+
+  </script>
+
+<footer class="bg-slate-900 text-slate-400 pt-16 pb-8 border-t border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 pb-12 border-b border-slate-800">
+        
+        <!-- Brand Block -->
+        <div class="col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="https://xmg.xstreamflex.com/i/ztMa77.ico" alt="Super Fitmo Logo" class="w-9 h-9" />
+            <span class="font-display text-xl font-bold tracking-tight text-white">
+              Super Fitmo
+            </span>
+          </a>
+          <p class="text-sm text-slate-400">
+            Empowering healthy, active lifestyles for kids. Transforming groggy monsters into bright, energetic heroes through simple habits, catchy songs, and energetic fitness play.
+          </p>
+          <div class="flex gap-4 pt-2">
+            <a href="https://youtube.com/superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="YouTube"><i class="fa-brands fa-youtube text-lg"></i></a>
+            <a href="https://tiktok.com/@superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="TikTok"><i class="fa-brands fa-tiktok text-lg"></i></a>
+            <a href="https://instagram.com/superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Resources</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="watch.html" class="hover:text-white transition-colors">Watch Episodes</a></li>
+            <li><a href="products.html" class="hover:text-white transition-colors">Printables & Fun</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Health & Parenting</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Company</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white transition-colors">About Fitmo</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="space-y-4 col-span-2">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Legal & Contact</h5>
+          <p class="text-xs text-slate-500">
+            Super Fitmo provides educational entertainment. Consult your pediatrician regarding family nutrition and physical habits.
+          </p>
+          <ul class="space-y-2 text-sm pt-2">
+            <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Legal footer note -->
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+        <p>© 2026 Super Fitmo. All rights reserved. Videos, characters, and assets are copyrighted property.</p>
+        <div class="flex gap-4">
+          <a href="privacy.html" class="hover:underline">Privacy</a>
+          <a href="terms.html" class="hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>
+(function() {
+  function initNavControls() {
+    const btn = document.getElementById('mobile-menu-btn') || document.querySelector('[data-menu-toggle]');
+    const menu = document.getElementById('mobile-menu') || document.querySelector('[data-menu-content]');
+    if (btn && menu) {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      };
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    }
+    const themeBtn = document.getElementById('theme-toggle-btn') || document.querySelector('[data-theme-toggle]');
+    if (themeBtn) {
+      themeBtn.onclick = function(e) {
+        e.stopPropagation();
+        document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('xsites_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); } catch(err){}
+      };
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavControls);
+  } else {
+    initNavControls();
+  }
+})();
+</script>
+<script>
+    // --- Dark/Light Mode Theme Toggle ---
+    const htmlElement = document.documentElement;
+    const themeBtnDesktop = document.getElementById('theme-toggle-btn');
+    const themeBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+
+    // Toggle logic
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        htmlElement.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.remove('light');
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Assign listeners
+    if (themeBtnDesktop) themeBtnDesktop.addEventListener('click', toggleTheme);
+    if (themeBtnMobile) themeBtnMobile.addEventListener('click', toggleTheme);
+
+    // Initial check (from system/localstorage preference)
+    const storedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
+      htmlElement.classList.remove('light');
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+      htmlElement.classList.add('light');
+    }
+
+    // --- Mobile Menu Toggle ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
