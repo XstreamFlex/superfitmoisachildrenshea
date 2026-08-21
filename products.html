@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Fitmo Shop - Active Kids Merchandise & Tools</title>
+  
+  <!-- MANDATORY FAVICON [ASSET 5] -->
+  <link rel="icon" href="https://xmg.xstreamflex.com/i/ztMa77.ico" type="image/x-icon" />
+
+  <!-- Dynamic catalog sync from products-data.js -->
+  <script src="products-data.js"></script>
+
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Custom Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            fitmoBlue: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              900: '#0c4a6e',
+            },
+            fitmoOrange: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              900: '#7c2d12',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #bae6fd;
+      border-radius: 10px;
+    }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1e293b;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-fitmoBlue-100 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="https://xmg.xstreamflex.com/i/ztMa77.ico" alt="Super Fitmo Logo Icon" class="w-10 h-10 transform group-hover:scale-110 transition-transform duration-300" />
+        <span class="font-display text-2xl font-bold tracking-tight bg-gradient-to-r from-fitmoBlue-600 to-fitmoOrange-500 bg-clip-text text-transparent">
+          Super Fitmo
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-fitmoBlue-600 dark:text-fitmoBlue-400 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500">Home</a>
+        <a href="watch.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Watch Now</a>
+        <a href="about.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">About</a>
+        <a href="products.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Products</a>
+        <a href="blog.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Blog</a>
+        <a href="contact.html" class="text-slate-600 dark:text-slate-300 font-semibold text-sm tracking-wide transition-colors duration-200 hover:text-fitmoOrange-500 dark:hover:text-fitmoOrange-500">Contact</a>
+      </nav>
+
+      <!-- Utility Actions (Theme & CTA) -->
+      <div class="hidden lg:flex items-center gap-4">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" class="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors duration-200 focus:outline-none" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+        </button>
+
+        <a href="watch.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full font-display font-semibold text-white bg-fitmoOrange-500 hover:bg-fitmoOrange-600 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+          Join the Rescue!
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button & Theme Action -->
+      <div class="flex items-center gap-3 lg:hidden">
+        <button id="theme-toggle-btn-mobile" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors duration-200" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon dark:hidden"></i>
+          <i class="fa-solid fa-sun hidden dark:block"></i>
+        </button>
+        <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-4 pb-6 space-y-3 transition-all duration-300 shadow-inner">
+      <a href="index.html" class="block px-4 py-2.5 rounded-lg bg-fitmoBlue-50 dark:bg-slate-800 text-fitmoBlue-600 dark:text-fitmoBlue-400 font-semibold">Home</a>
+      <a href="watch.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Watch Now</a>
+      <a href="about.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">About Us</a>
+      <a href="products.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Products</a>
+      <a href="blog.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Blog</a>
+      <a href="contact.html" class="block px-4 py-2.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-semibold">Contact</a>
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+        <a href="watch.html" class="block w-full text-center py-3 rounded-full font-display font-semibold text-white bg-fitmoOrange-500 hover:bg-fitmoOrange-600 shadow-md">
+          Join the Rescue!
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- GLOBAL HEADER NAVIGATION -->
+  
+
+  <!-- MAIN SHOP LAYOUT -->
+  <main class="flex-grow">
+    
+    <!-- HERO FEATURED PRODUCT BANNER (Utilizing fitmohangrycover.png [ASSET 3]) -->
+    <section class="relative bg-gradient-to-r from-fitmoBlue-600 via-fitmoBlue-500 to-fitmoOrange-500 text-white overflow-hidden py-16 md:py-24">
+      <!-- Decorative vector bubbles -->
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_30%_20%,#fff_8px,transparent_8px)] bg-[length:40px_40px]"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Text Details -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
+              <i class="fa-solid fa-star text-fitmoOrange-300"></i> New Featured Book!
+            </span>
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+              Super Fitmo & The <span class="underline decoration-fitmoOrange-300">Hangry Monster</span>
+            </h1>
+            <p class="text-lg text-fitmoBlue-50 max-w-2xl font-medium">
+              Why does skipping healthy snacks turn us into grumpy growling monsters? Tag along in Super Fitmo's magical rhyming adventures as he teaches healthy eating habits through catchy melodies!
+            </p>
+            
+            <div class="flex flex-wrap gap-4 items-center justify-center lg:justify-start pt-2">
+              <span class="font-display text-3xl font-bold text-white">$12.99</span>
+              <span class="line-through text-fitmoBlue-200 text-lg">$17.99</span>
+              <span class="bg-fitmoOrange-500 text-white text-xs font-extrabold px-3 py-1 rounded-md">Save 28%</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="product-3.html" class="px-8 py-4 rounded-full font-display font-bold text-lg bg-white text-fitmoBlue-600 hover:bg-fitmoOrange-50 hover:text-fitmoOrange-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center gap-2">
+                <i class="fa-solid fa-circle-info"></i> View Book Details
+              </a>
+              <button onclick="addToCart('Super Fitmo & The Hangry Monster', 12.99)" class="px-8 py-4 rounded-full font-display font-bold text-lg bg-fitmoOrange-500 text-white hover:bg-fitmoOrange-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center gap-2">
+                <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- Featured Image Wrapper [ASSET 3] -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative group max-w-sm sm:max-w-md w-full">
+              <!-- Glow background -->
+              <div class="absolute -inset-1.5 bg-gradient-to-r from-fitmoOrange-500 to-fitmoBlue-400 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+              <div class="relative bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-2xl">
+                <!-- MANDATORY ACTION: Render fitmohangrycover.png -->
+                <img src="https://xmg.xstreamflex.com/i/WqIGFC" alt="fitmohangrycover.png" class="rounded-xl shadow-lg w-full h-[320px] sm:h-[400px] object-cover transform group-hover:scale-[1.02] transition-transform duration-300" />
+                <div class="absolute top-6 right-6 bg-fitmoOrange-500 text-white font-display text-sm font-bold py-1 px-3 rounded-full shadow-md">
+                  Includes Audio CDs & Play-along QR!
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STOREFRONT HUB SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      
+      <!-- Catalog Controls & Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-fitmoOrange-500 font-bold tracking-wider uppercase text-sm font-display">Super Fitmo Gear</span>
+          <h2 class="text-3xl font-display font-bold text-slate-950 dark:text-white mt-1">
+            Shop Active Edutainment Tools
+          </h2>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">
+            Keep the energy high, turn bad habits into superpowers, and avoid the Monster state!
+          </p>
+        </div>
+
+        <!-- Search input & sorting options -->
+        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+          <div class="relative flex-grow sm:w-64">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" id="search-input" placeholder="Search gear or books..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-fitmoBlue-500 transition-colors text-sm" oninput="applyFilters()" />
+          </div>
+
+          <div class="relative">
+            <select id="sort-select" onchange="applyFilters()" class="w-full sm:w-48 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-fitmoBlue-500 transition-colors text-sm appearance-none cursor-pointer">
+              <option value="popular">Popularity</option>
+              <option value="low-high">Price: Low to High</option>
+              <option value="high-low">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+            </select>
+            <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
+              <i class="fa-solid fa-chevron-down text-xs"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters & Category Pills -->
+      <div class="flex flex-wrap items-center justify-between gap-4 py-6">
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap gap-2" id="category-pills">
+          <button onclick="setCategory('All')" class="category-pill active-pill px-5 py-2 rounded-full font-display text-sm font-semibold transition-all duration-300 bg-fitmoBlue-600 text-white">
+            All Products
+          </button>
+          <button onclick="setCategory('Toys & Gear')" class="category-pill px-5 py-2 rounded-full font-display text-sm font-semibold transition-all duration-300 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-fitmoBlue-50 dark:hover:bg-slate-800">
+            Toys & Gear
+          </button>
+          <button onclick="setCategory('Storybooks')" class="category-pill px-5 py-2 rounded-full font-display text-sm font-semibold transition-all duration-300 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-fitmoBlue-50 dark:hover:bg-slate-800">
+            Storybooks
+          </button>
+          <button onclick="setCategory('Adventure Gear')" class="category-pill px-5 py-2 rounded-full font-display text-sm font-semibold transition-all duration-300 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-fitmoBlue-50 dark:hover:bg-slate-800">
+            Adventure Gear
+          </button>
+          <button onclick="setCategory('Printables')" class="category-pill px-5 py-2 rounded-full font-display text-sm font-semibold transition-all duration-300 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-fitmoBlue-50 dark:hover:bg-slate-800">
+            Printables
+          </button>
+        </div>
+
+        <!-- Cart Quick Overview Info -->
+        <div class="flex items-center gap-3 bg-fitmoOrange-50 dark:bg-slate-900 px-4 py-2 rounded-full border border-fitmoOrange-100 dark:border-slate-800">
+          <i class="fa-solid fa-basket-shopping text-fitmoOrange-500"></i>
+          <span class="text-sm font-bold text-slate-700 dark:text-slate-300">
+            Cart: <span id="cart-count">0</span> items
+          </span>
+          <button onclick="toggleCartModal()" class="text-xs bg-fitmoOrange-500 hover:bg-fitmoOrange-600 text-white px-2.5 py-1 rounded-full font-bold transition-all">
+            View
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Layout: Sidebar & Products Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Filter Sidebar -->
+        <aside class="space-y-8 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 h-fit">
+          <div>
+            <h3 class="font-display font-bold text-slate-950 dark:text-white text-lg mb-4">
+              Filter by Price
+            </h3>
+            <div class="space-y-4">
+              <input type="range" id="price-range" min="0" max="50" step="1" value="50" class="w-full accent-fitmoBlue-500 cursor-pointer" oninput="updatePriceLabel(this.value)" />
+              <div class="flex justify-between text-xs font-semibold text-slate-500">
+                <span>$0.00</span>
+                <span>Max Price: <strong class="text-fitmoBlue-600 dark:text-fitmoBlue-400 text-sm">$<span id="price-limit">50</span></strong></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-100 dark:border-slate-800 pt-6">
+            <h3 class="font-display font-bold text-slate-950 dark:text-white text-lg mb-4">
+              Why Super Fitmo Gear?
+            </h3>
+            <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                <span>Pediatrician recommended lifestyle habits built into play.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                <span>Active integrations connecting screen time to movement.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-500 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                <span>Kid-safe materials & high quality standard digital downloads.</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="resetFilters()" class="w-full py-2.5 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 hover:border-fitmoOrange-500 dark:hover:border-fitmoOrange-500 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-fitmoOrange-500 transition-colors">
+            Reset Filters
+          </button>
+        </aside>
+
+        <!-- Product Grid Dynamic Wrapper -->
+        <div class="lg:col-span-3">
+          <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic elements load here -->
+          </div>
+          
+          <!-- No Results Indicator -->
+          <div id="no-results" class="hidden text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800">
+            <div class="text-4xl text-slate-300 dark:text-slate-700 mb-3">
+              <i class="fa-solid fa-face-frown-open"></i>
+            </div>
+            <h4 class="font-display text-lg font-bold">No active toys or books matches your filters</h4>
+            <p class="text-sm text-slate-500 mt-1">Try relaxing your search terms or shifting the price limits!</p>
+            <button onclick="resetFilters()" class="mt-4 px-5 py-2 bg-fitmoBlue-600 hover:bg-fitmoBlue-700 text-white rounded-full font-bold text-sm">
+              Show All Products
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- HIGHLIGHT SECTION: OUTDOOR FUN (Featuring Banana Pack [ASSET 4] & Adventure Bands [ASSET 2] & Plushie [ASSET 1]) -->
+    <section class="bg-fitmoBlue-50 dark:bg-slate-900 py-16 border-t border-b border-fitmoBlue-100 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="font-display text-3xl md:text-4xl font-extrabold text-slate-950 dark:text-white">
+            Super Fitmo's Hero Kits
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-2">
+            Specially combined active kits to transform screen time into real-world backyard heroics!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Kit Card 1 (Asset 1) -->
+          <div class="bg-white dark:bg-slate-950 rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 space-y-4 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="h-48 rounded-xl overflow-hidden relative">
+                <!-- MANDATORY ACTION: Render Copilot_20260104_235718.png -->
+                <img src="https://xmg.xstreamflex.com/i/SGPBqZ" alt="Copilot_20260104_235718.png" class="w-full h-full object-cover" />
+                <span class="absolute top-3 left-3 bg-fitmoOrange-500 text-white font-display text-xs font-bold px-2.5 py-1 rounded-full">Classic Plush</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Super Fitmo Companion</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                The official super soft companion doll that tags along for bedroom fitness routines and monitors peaceful sleep.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <span class="font-display font-bold text-lg text-slate-900 dark:text-white">$19.99</span>
+              <a href="product-1.html" class="px-4 py-2 bg-fitmoBlue-600 hover:bg-fitmoBlue-700 text-white text-xs font-bold rounded-lg tracking-wide transition">View Gear</a>
+            </div>
+          </div>
+
+          <!-- Kit Card 2 (Asset 2) -->
+          <div class="bg-white dark:bg-slate-950 rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 space-y-4 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="h-48 rounded-xl overflow-hidden relative">
+                <!-- MANDATORY ACTION: Render Copilot_20260529_023729.png -->
+                <img src="https://xmg.xstreamflex.com/i/VjN0zt" alt="Copilot_20260529_023729.png" class="w-full h-full object-cover" />
+                <span class="absolute top-3 left-3 bg-fitmoBlue-500 text-white font-display text-xs font-bold px-2.5 py-1 rounded-full">Interactive</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Fitmo Active Bands</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                Pediatric-grade motion tracker syncs perfectly with our YouTube dance-alongs to award digital power coins.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <span class="font-display font-bold text-lg text-slate-900 dark:text-white">$34.99</span>
+              <a href="product-2.html" class="px-4 py-2 bg-fitmoBlue-600 hover:bg-fitmoBlue-700 text-white text-xs font-bold rounded-lg tracking-wide transition">View Gear</a>
+            </div>
+          </div>
+
+          <!-- Kit Card 3 (Asset 4) -->
+          <div class="bg-white dark:bg-slate-950 rounded-2xl p-6 shadow-md border border-slate-100 dark:border-slate-800 space-y-4 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="h-48 rounded-xl overflow-hidden relative">
+                <!-- MANDATORY ACTION: Render bannana.png -->
+                <img src="https://xmg.xstreamflex.com/i/WLJqnH" alt="bannana.png" class="w-full h-full object-cover" />
+                <span class="absolute top-3 left-3 bg-yellow-500 text-slate-950 font-display text-xs font-bold px-2.5 py-1 rounded-full">Potassium Power</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">Super Banana Active Pack</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                Outdoor training rings shaped like happy banana power-ups, teaching kids the amazing energy benefits of fruits!
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <span class="font-display font-bold text-lg text-slate-900 dark:text-white">$15.99</span>
+              <a href="product-4.html" class="px-4 py-2 bg-fitmoBlue-600 hover:bg-fitmoBlue-700 text-white text-xs font-bold rounded-lg tracking-wide transition">View Gear</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER / JOIN HERO CLUB -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <div class="bg-gradient-to-r from-fitmoOrange-500 to-fitmoOrange-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_70%_80%,#fff_12px,transparent_12px)] bg-[length:50px_50px]"></div>
+        <div class="relative z-10 max-w-xl mx-auto space-y-4">
+          <i class="fa-solid fa-gift text-4xl text-white/90"></i>
+          <h2 class="font-display text-2xl md:text-3xl font-bold">Get a FREE Printable Activity Map!</h2>
+          <p class="text-sm md:text-base text-fitmoOrange-50 font-medium">
+            Join the Super Fitmo newsletter list to receive interactive nutrition tracker charts, video updates, and exclusive store discounts!
+          </p>
+          <form onsubmit="event.preventDefault(); alert('Awesome! Welcome to the Fitmo Hero crew!');" class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto pt-2">
+            <input type="email" placeholder="Parent's email address..." required class="px-5 py-3 rounded-full text-slate-800 bg-white placeholder-slate-400 focus:outline-none text-sm flex-grow" />
+            <button type="submit" class="bg-slate-900 hover:bg-slate-800 text-white font-display font-bold px-6 py-3 rounded-full transition duration-300 text-sm whitespace-nowrap">
+              Unlock Coupon
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SHOPPING CART MODAL QUICK DRAWER -->
+  <div id="cart-modal" class="fixed inset-0 z-[100] hidden bg-slate-950/60 backdrop-blur-sm flex justify-end transition-all">
+    <div class="w-full max-w-md bg-white dark:bg-slate-900 h-full shadow-2xl p-6 flex flex-col justify-between border-l border-slate-100 dark:border-slate-800">
+      
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+          <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+            <i class="fa-solid fa-basket-shopping text-fitmoOrange-500"></i> Your Rescue Cart
+          </h3>
+          <button onclick="toggleCartModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white text-xl p-1">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Dynamic Cart List -->
+        <div id="cart-items-list" class="py-4 space-y-4 overflow-y-auto max-h-[60vh] custom-scrollbar">
+          <div id="empty-cart-message" class="text-center py-12 text-slate-400">
+            <i class="fa-solid fa-ghost text-3xl mb-2 text-slate-300"></i>
+            <p class="text-sm font-semibold">Your shopping cart is empty!</p>
+            <p class="text-xs">Add cute plushies or active games to get started!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-100 dark:border-slate-800 pt-4 space-y-4 bg-white dark:bg-slate-900">
+        <div class="flex items-center justify-between font-bold text-slate-900 dark:text-white text-base">
+          <span>Total Estimate:</span>
+          <span id="cart-total-price" class="text-fitmoBlue-600 dark:text-fitmoBlue-400">$0.00</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <button onclick="clearCart()" class="py-3 rounded-full text-xs font-bold text-slate-500 hover:text-slate-700 dark:hover:text-white border border-slate-200 dark:border-slate-800">
+            Clear Cart
+          </button>
+          <button onclick="alert('Proceeding to mock secure checkout! Go Super Fitmo heroes!');" class="py-3 rounded-full text-xs font-bold bg-fitmoOrange-500 hover:bg-fitmoOrange-600 text-white font-display shadow-md">
+            Secure Checkout
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GLOBAL FOOTER -->
+  
+
+  <!-- MAIN SCRIPT CONTROLLER (Dynamic catalog handling, filters, cart, theme toggles) -->
+  <script>
+    // Fallback/dynamic synchronization mock data. If window.productsData exists from products-data.js, it can override.
+    const fallbackProducts = [
+      {
+        id: 1,
+        title: "Super Fitmo Adventure Companion Doll",
+        price: 19.99,
+        rating: 5.0,
+        category: "Toys & Gear",
+        image: "https://xmg.xstreamflex.com/i/SGPBqZ", // Asset 1
+        link: "product-1.html",
+        tag: "Bestseller",
+        desc: "Cozy plush doll to guide active games and watch over healthy sleeps."
+      },
+      {
+        id: 2,
+        title: "Fitmo Hero Kid Smart Active Band",
+        price: 34.99,
+        rating: 4.8,
+        category: "Adventure Gear",
+        image: "https://xmg.xstreamflex.com/i/VjN0zt", // Asset 2
+        link: "product-2.html",
+        tag: "New",
+        desc: "Interactive step tracker syncs beautifully with our rescue episodes."
+      },
+      {
+        id: 3,
+        title: "Super Fitmo & The Hangry Monster",
+        price: 12.99,
+        rating: 4.9,
+        category: "Storybooks",
+        image: "https://xmg.xstreamflex.com/i/WqIGFC", // Asset 3
+        link: "product-3.html",
+        tag: "Featured",
+        desc: "Learn why skipping meals makes us acts like grumpy growlers in this sweet storybook."
+      },
+      {
+        id: 4,
+        title: "Super Banana Active Power Pack",
+        price: 15.99,
+        rating: 4.7,
+        category: "Adventure Gear",
+        image: "https://xmg.xstreamflex.com/i/WLJqnH", // Asset 4
+        link: "product-4.html",
+        tag: "Active Play",
+        desc: "Banana-shaped toss disks packed with workout card challenges."
+      },
+      {
+        id: 5,
+        title: "The Sleepy Monster PJ & Pillow Cover Set",
+        price: 24.99,
+        rating: 4.6,
+        category: "Toys & Gear",
+        image: "https://images.unsplash.com/photo-1515488042361-404e9250afef?auto=format&fit=crop&q=80&w=600",
+        link: "product-5.html",
+        tag: "Cozy Sleep",
+        desc: "Soft organic cotton pajamas that help transition kids into sweet dreams smoothly."
+      },
+      {
+        id: 6,
+        title: "Ultimate Edutainment Printable Activity Pack",
+        price: 4.99,
+        rating: 4.9,
+        category: "Printables",
+        image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&q=80&w=600",
+        link: "product-6.html",
+        tag: "Digital",
+        desc: "High-resolution workout charts, recipe calendars, and coloring pages."
+      }
+    ];
+
+    // Determine the active product pool
+    const productsList = window.productsData || fallbackProducts;
+
+    let selectedCategory = 'All';
+    let maxPrice = 50;
+    let searchFilter = '';
+    let sortOption = 'popular';
+
+    let shoppingCart = [];
+
+    // Initialize Products
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updatePriceLabel(50);
+      setupThemeToggle();
+      setupMobileMenu();
+    });
+
+    // Theme Toggle Functionality
+    function setupThemeToggle() {
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      const themeToggleBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+      
+      // Check for saved preference
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+
+      if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+      if (themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleTheme);
+    }
+
+    // Mobile Menu Drawer Functionality
+    function setupMobileMenu() {
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    }
+
+    // Update Price Label and variable
+    function updatePriceLabel(val) {
+      maxPrice = parseFloat(val);
+      document.getElementById('price-limit').innerText = val;
+      applyFilters();
+    }
+
+    // Category Selector
+    function setCategory(cat) {
+      selectedCategory = cat;
+      const pills = document.querySelectorAll('#category-pills button');
+      pills.forEach(pill => {
+        pill.classList.remove('active-pill', 'bg-fitmoBlue-600', 'text-white');
+        pill.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300');
+      });
+
+      // Find selected button
+      const clickedBtn = Array.from(pills).find(p => p.innerText.includes(cat));
+      if (clickedBtn) {
+        clickedBtn.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300');
+        clickedBtn.classList.add('active-pill', 'bg-fitmoBlue-600', 'text-white');
+      }
+      applyFilters();
+    }
+
+    // Filter Logic
+    function applyFilters() {
+      searchFilter = document.getElementById('search-input').value.toLowerCase();
+      sortOption = document.getElementById('sort-select').value;
+
+      let filtered = productsList.filter(p => {
+        const matchesCategory = (selectedCategory === 'All' || p.category === selectedCategory);
+        const matchesPrice = (p.price <= maxPrice);
+        const matchesSearch = (p.title.toLowerCase().includes(searchFilter) || p.desc.toLowerCase().includes(searchFilter));
+        return matchesCategory && matchesPrice && matchesSearch;
+      });
+
+      // Sort
+      if (sortOption === 'low-high') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortOption === 'high-low') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortOption === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      } // 'popular' is base sort sequence
+
+      renderProductGrid(filtered);
+    }
+
+    // Reset Filters
+    function resetFilters() {
+      document.getElementById('search-input').value = '';
+      document.getElementById('price-range').value = 50;
+      maxPrice = 50;
+      document.getElementById('price-limit').innerText = '50';
+      setCategory('All');
+    }
+
+    // Render Logic
+    function renderProducts() {
+      renderProductGrid(productsList);
+    }
+
+    function renderProductGrid(items) {
+      const grid = document.getElementById('product-grid');
+      const noResults = document.getElementById('no-results');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        noResults.classList.remove('hidden');
+        grid.classList.add('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      grid.classList.remove('hidden');
+
+      items.forEach(p => {
+        const cardHTML = `
+          <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+            
+            <div class="relative overflow-hidden aspect-square bg-slate-100 dark:bg-slate-950">
+              <span class="absolute top-3 left-3 z-10 bg-fitmoOrange-500 text-white font-display text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                ${p.tag}
+              </span>
+              <a href="${p.link}" class="block w-full h-full">
+                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </a>
+              <!-- Quick add overlay -->
+              <button onclick="addToCart('${p.title.replace(/'/g, "\\'")}', ${p.price})" class="absolute bottom-3 right-3 bg-white dark:bg-slate-850 hover:bg-fitmoOrange-500 hover:text-white text-slate-800 dark:text-white p-3 rounded-full shadow-lg transition-colors z-10" title="Quick Add">
+                <i class="fa-solid fa-plus text-sm"></i>
+              </button>
+            </div>
+
+            <div class="p-5 flex-grow flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between text-xs font-bold text-fitmoBlue-600 dark:text-fitmoBlue-400">
+                  <span>${p.category}</span>
+                  <span class="flex items-center gap-1 text-fitmoOrange-500">
+                    <i class="fa-solid fa-star"></i> ${p.rating.toFixed(1)}
+                  </span>
+                </div>
+                
+                <a href="${p.link}" class="block">
+                  <h4 class="font-display text-lg font-bold text-slate-950 dark:text-white hover:text-fitmoOrange-500 transition-colors line-clamp-1">
+                    ${p.title}
+                  </h4>
+                </a>
+                
+                <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">
+                  ${p.desc}
+                </p>
+              </div>
+
+              <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <span class="font-display font-bold text-lg text-slate-900 dark:text-white">
+                  $${p.price.toFixed(2)}
+                </span>
+                <a href="${p.link}" class="text-xs font-semibold text-slate-500 hover:text-fitmoBlue-600 dark:hover:text-fitmoBlue-400 flex items-center gap-1">
+                  Details <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', cardHTML);
+      });
+    }
+
+    // Shopping Cart System (State Management)
+    function addToCart(title, price) {
+      const existing = shoppingCart.find(item => item.title === title);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        shoppingCart.push({ title, price, qty: 1 });
+      }
+      updateCartUI();
+      // Auto open dynamic cart preview drawer
+      toggleCartModal(true);
+    }
+
+    function toggleCartModal(forceOpen = false) {
+      const modal = document.getElementById('cart-modal');
+      if (forceOpen) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.toggle('hidden');
+      }
+    }
+
+    function clearCart() {
+      shoppingCart = [];
+      updateCartUI();
+    }
+
+    function removeCartItem(title) {
+      shoppingCart = shoppingCart.filter(item => item.title !== title);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const countLabel = document.getElementById('cart-count');
+      const itemsList = document.getElementById('cart-items-list');
+      const totalLabel = document.getElementById('cart-total-price');
+      const emptyMsg = document.getElementById('empty-cart-message');
+
+      // count total quantity
+      const totalQty = shoppingCart.reduce((acc, item) => acc + item.qty, 0);
+      countLabel.innerText = totalQty;
+
+      // clear lists
+      itemsList.innerHTML = '';
+
+      if (shoppingCart.length === 0) {
+        if (emptyMsg) itemsList.appendChild(emptyMsg);
+        totalLabel.innerText = "$0.00";
+        return;
+      }
+
+      let totalPrice = 0;
+
+      shoppingCart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        totalPrice += itemTotal;
+
+        const el = document.createElement('div');
+        el.className = 'flex items-center justify-between gap-4 p-3 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-100 dark:border-slate-800';
+        el.innerHTML = `
+          <div class="flex-grow">
+            <h5 class="text-sm font-bold text-slate-900 dark:text-white line-clamp-1">${item.title}</h5>
+            <div class="flex items-center gap-3 text-xs text-slate-500 mt-0.5">
+              <span>Qty: <strong>${item.qty}</strong></span>
+              <span>Price: $${item.price.toFixed(2)}</span>
+            </div>
+          </div>
+          <div class="text-right flex flex-col items-end gap-1">
+            <span class="text-sm font-bold text-slate-950 dark:text-white">$${itemTotal.toFixed(2)}</span>
+            <button onclick="removeCartItem('${item.title.replace(/'/g, "\\'")}')" class="text-rose-500 hover:text-rose-600 text-xs font-semibold">
+              Remove
+            </button>
+          </div>
+        `;
+        itemsList.appendChild(el);
+      });
+
+      totalLabel.innerText = `$${totalPrice.toFixed(2)}`;
+    }
+  </script>
+
+<footer class="bg-slate-900 text-slate-400 pt-16 pb-8 border-t border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 pb-12 border-b border-slate-800">
+        
+        <!-- Brand Block -->
+        <div class="col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="https://xmg.xstreamflex.com/i/ztMa77.ico" alt="Super Fitmo Logo" class="w-9 h-9" />
+            <span class="font-display text-xl font-bold tracking-tight text-white">
+              Super Fitmo
+            </span>
+          </a>
+          <p class="text-sm text-slate-400">
+            Empowering healthy, active lifestyles for kids. Transforming groggy monsters into bright, energetic heroes through simple habits, catchy songs, and energetic fitness play.
+          </p>
+          <div class="flex gap-4 pt-2">
+            <a href="https://youtube.com/superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="YouTube"><i class="fa-brands fa-youtube text-lg"></i></a>
+            <a href="https://tiktok.com/@superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="TikTok"><i class="fa-brands fa-tiktok text-lg"></i></a>
+            <a href="https://instagram.com/superfitmo" target="_blank" rel="noopener" class="text-slate-400 hover:text-white transition-colors" title="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Resources</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="watch.html" class="hover:text-white transition-colors">Watch Episodes</a></li>
+            <li><a href="products.html" class="hover:text-white transition-colors">Printables & Fun</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors">Health & Parenting</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="space-y-4">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Company</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white transition-colors">About Fitmo</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="space-y-4 col-span-2">
+          <h5 class="text-white font-bold text-sm tracking-wider uppercase">Legal & Contact</h5>
+          <p class="text-xs text-slate-500">
+            Super Fitmo provides educational entertainment. Consult your pediatrician regarding family nutrition and physical habits.
+          </p>
+          <ul class="space-y-2 text-sm pt-2">
+            <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Legal footer note -->
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+        <p>© 2026 Super Fitmo. All rights reserved. Videos, characters, and assets are copyrighted property.</p>
+        <div class="flex gap-4">
+          <a href="privacy.html" class="hover:underline">Privacy</a>
+          <a href="terms.html" class="hover:underline">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>
+(function() {
+  function initNavControls() {
+    const btn = document.getElementById('mobile-menu-btn') || document.querySelector('[data-menu-toggle]');
+    const menu = document.getElementById('mobile-menu') || document.querySelector('[data-menu-content]');
+    if (btn && menu) {
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      };
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    }
+    const themeBtn = document.getElementById('theme-toggle-btn') || document.querySelector('[data-theme-toggle]');
+    if (themeBtn) {
+      themeBtn.onclick = function(e) {
+        e.stopPropagation();
+        document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('xsites_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); } catch(err){}
+      };
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavControls);
+  } else {
+    initNavControls();
+  }
+})();
+</script>
+<script>
+    // --- Dark/Light Mode Theme Toggle ---
+    const htmlElement = document.documentElement;
+    const themeBtnDesktop = document.getElementById('theme-toggle-btn');
+    const themeBtnMobile = document.getElementById('theme-toggle-btn-mobile');
+
+    // Toggle logic
+    function toggleTheme() {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        htmlElement.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.remove('light');
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Assign listeners
+    if (themeBtnDesktop) themeBtnDesktop.addEventListener('click', toggleTheme);
+    if (themeBtnMobile) themeBtnMobile.addEventListener('click', toggleTheme);
+
+    // Initial check (from system/localstorage preference)
+    const storedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
+      htmlElement.classList.remove('light');
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+      htmlElement.classList.add('light');
+    }
+
+    // --- Mobile Menu Toggle ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
